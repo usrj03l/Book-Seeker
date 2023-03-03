@@ -1,0 +1,44 @@
+<div class="search">
+  <h3>Looing for a book ?</h3>
+  
+  <input (keyup.enter)="searchItem()"
+    type="text"
+    class="search-box"
+    placeholder="Search"
+    [(ngModel)]="searchText"
+    (ngModelChange)="searchObs.next(searchText)"
+  />
+  <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+  <br /><br />
+  <span class="choice"
+    ><input (click)="radio('')" class="choice subject" type="radio" name="detail"  /> None</span
+  >
+  <span class="choice"
+    ><input (click)="radio('intitle:')" class="choice title" type="radio" name="detail" value="title" /> Title</span
+  >
+  <span class="choice"
+    ><input (click)="radio('inauthor:')" class="choice author" type="radio" name="detail" value="author" /> Author</span
+  >
+  <span class="choice"
+    ><input (click)="radio('subject:')" class="choice subject" type="radio" name="detail" value="subject" /> Subject</span
+  >
+</div>
+
+<h2 *ngIf="!data">Search for a book of your choice from our database</h2>
+<h1 style="color: white; margin: 3%" *ngIf="data">Results for : {{ searchText }}</h1>
+
+<div class="row top-pick">
+  <ng-container *ngFor="let item of data.items">
+    <div class="col-lg-3 item d-flex align-items-stretch" *ngIf="item.volumeInfo.imageLinks">
+      <div (click)="gotoBookInfo(item.volumeInfo.industryIdentifiers[0].identifier)" class="card" style="width: 12rem" >
+        <img
+          class="card-img-top"
+          [src]="item.volumeInfo.imageLinks.smallThumbnail | safePipe"
+        />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title text-center">{{ item.volumeInfo.title }}</h5>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

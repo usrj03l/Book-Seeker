@@ -1,0 +1,67 @@
+<nav class="navbar navbar-custom navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand logo-link" routerLink="Home"><img src="../../../assets/images/logo.png">The Literary Lounge</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto items">
+        <li class="nav-item sub-items">
+          <a class="nav-link" routerLink="Home">Home</a>
+        </li>
+        <li class="nav-item dropdown sub-items">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Genre
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" (click)="getInfo('fiction+crime','1')">Crime</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" (click)="getInfo('Art','2')">Art</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" (click)="getInfo('Religion','3')">Religion</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" (click)="getInfo('Biography','4')">Biography</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" (click)="getInfo('subject:Technology','5')">Technology</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" (click)="getInfo('Sports','6')">Sports</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" (click)="getInfo('fiction+Romance+young','7')">Romance</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" (click)="getInfo('funny+fiction','8')">Comedy</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" (click)="getInfo('poetry','9')">Poetry</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" (click)="getInfo('thriller','10')">Thriller</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" (click)="getInfo('suspense','11')">Suspense</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" (click)="getInfo('mystery','12')">Mystery</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" (click)="getInfo('fiction+horror','13')">Horror</a></li>
+          </ul>
+        </li>
+        <li class="nav-item sub-items">
+          <a class="nav-link" routerLink="search">Search</a>
+        </li>
+        <li class="nav-item sub-items">
+          <a class="nav-link" routerLink="contact-us">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

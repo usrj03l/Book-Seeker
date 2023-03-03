@@ -1,0 +1,67 @@
+<div id="homeCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="3000">
+      <h1>Welcome To The Literary Lounge</h1>
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <h2>
+        "The more that you read, the more things you will know. The more that
+        you learn, the more places you'll go."
+      </h2>
+      <h2>- Dr. Seuss</h2>
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <h2>
+        "A reader lives a thousand lives before he dies, said Jojen. The man who
+        never reads lives only one."
+      </h2>
+      <h2>- George R.R. Martin</h2>
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <h2>
+        "The books that the world calls immoral are books that show the world
+        its own shame."
+      </h2>
+      <h2>- Oscar Wilde</h2>
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <h2>
+        "Books are the plane, and the train, and the road. They are the
+        destination, and the journey. They are home."
+      </h2>
+      <h2>- Anna Quindlen</h2>
+    </div>
+    <div class="carousel-item" data-bs-interval="3000">
+      <h2>
+        "One glance at a book and you hear the voice of another person, perhaps
+        someone dead for 1,000 years. To read is to voyage through time."
+      </h2>
+      <h2>- Carl Sagan</h2>
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#homeCarousel"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#homeCarousel"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<app-loading *ngIf="count !== 5"></app-loading>
+<app-card [data]="bestSeller" [head]="bestSellerHead"></app-card>
+<app-card [data]="topPicks" [head]="topPicksHead"></app-card>
+<app-google-card [data]="crime" [head]="crimeHead"></app-google-card>
+<app-google-card [data]="romance" [head]="romanceHead"></app-google-card>
+<app-google-card [data]="fantasy" [head]="fantasyHead"></app-google-card>

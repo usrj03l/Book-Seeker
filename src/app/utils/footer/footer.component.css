@@ -1,0 +1,21 @@
+*{
+    color: whitesmoke;
+}
+
+footer{
+    margin-top: 10%;
+    text-align: center;
+}
+
+.copyright{
+    padding: 2% 0%;
+}
+
+.footer-icon > i {
+    padding: 0px 10px;
+}
+
+.footer-icon > i:hover {
+    color: rgb(237, 88, 25);
+    cursor: pointer;
+}

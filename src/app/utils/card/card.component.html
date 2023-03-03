@@ -1,0 +1,17 @@
+<div class="container">
+  <h1> {{head}} </h1>
+  <hr size="3" />
+  <div class="top-pick">
+    <div
+      class="item d-flex align-items-stretch"
+      *ngFor="let item of data.books"
+    >
+      <div (click)="gotoBookInfo(item.primary_isbn10)" class="card" style="width: 12rem">
+        <img class="card-img-top" [src]="item.book_image | safePipe" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title text-center">{{ item.title }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

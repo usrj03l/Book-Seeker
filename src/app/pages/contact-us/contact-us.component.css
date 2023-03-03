@@ -1,0 +1,29 @@
+
+fieldset{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 5%;
+}
+
+hr{
+    padding-bottom: 2%;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    color: azure;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2%;
+    width: 50rem;
+    padding: 2%;
+} 
+
+.control-label{
+    padding-bottom: 2%;
+}

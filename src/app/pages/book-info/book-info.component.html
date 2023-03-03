@@ -1,0 +1,21 @@
+
+<div class="no-data" *ngIf="!data.items">
+    <h2> <em>Sorry... No data available at the time</em> </h2>
+</div>
+
+<div class="container" *ngIf="data.items">
+    <div class="row">
+        <div class="col-lg-6 image">
+            <img class="" [src]="data.items[0].volumeInfo.imageLinks.thumbnail | safePipe">
+            <h4>Rating: <span *ngFor="let _ of [].constructor(rating)"> {{star}} </span></h4>
+            <button  class="btn btn-light" > Add to bookshelf </button>
+            <button (click)="gotoBuy()" class="btn btn-light" *ngIf="buy"> Buy </button>
+        </div>
+        <div class="col-lg-6">
+            <h1>Summary</h1>
+            <hr>
+            <p> {{data.items[0].volumeInfo.description}} </p>
+            <hr class="end">
+        </div>
+    </div>
+</div>

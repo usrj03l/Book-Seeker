@@ -1,0 +1,27 @@
+img{
+  height: 50px;
+  width: 50px;
+  margin: 0 20px;
+}
+
+.logo-link{
+  color: whitesmoke;
+  font-family: 'Roboto Mono', monospace;
+  
+}
+
+.navbar-custom {
+  background-color: #ee6655;
+}
+
+.nav-link {
+  color: whitesmoke;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+.container-fluid{
+  padding: 10px 10%;
+}

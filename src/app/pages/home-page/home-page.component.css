@@ -1,0 +1,27 @@
+.container {
+  margin-top: 5%;
+}
+
+h1,
+h2 {
+  color: whitesmoke;
+}
+
+h2 {
+  font-family: "Lobster", cursive;
+}
+
+hr {
+  color: whitesmoke;
+  padding-bottom: 2%;
+}
+
+#homeCarousel{
+  height: 34rem;
+  padding-top: 15rem;
+}
+
+.carousel-item{
+  padding: 0% 24%;
+  text-align: center;
+}

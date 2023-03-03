@@ -1,0 +1,50 @@
+img {
+  height: 250px;
+  border-radius: 2%;
+  max-width: 100%;
+}
+
+h1 {
+  color: whitesmoke;
+  margin-left: 12px;
+}
+hr {
+  color: whitesmoke;
+  padding-bottom: 2%;
+  margin-left: 12px;
+}
+.container {
+  margin-top: 5%;
+}
+
+.card {
+  margin-bottom: 10%;
+  background-color: #fffbeb;
+  transition: 1.2s;
+}
+
+.card:hover {
+  background-color: rgb(57, 56, 57);
+  color: whitesmoke;
+  cursor: pointer;
+  transform: scale(0.95);
+  transition-property: transform, background-color, color;
+  transition-timing-function: ease-in-out;
+  transition-duration: 300ms;
+  -webkit-box-shadow: 1px 1px 19px -6px rgba(255, 255, 255, 0.85);
+  -moz-box-shadow: 1px 1px 19px -6px rgba(255, 255, 255, 0.85);
+  box-shadow: 1px 1px 19px -6px rgba(255, 255, 255, 0.85);
+}
+
+.item {
+  padding: 1% 1%;
+}
+
+.top-pick {
+  display: flex;
+  flex-direction: row;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  border-radius: 5px;
+}
