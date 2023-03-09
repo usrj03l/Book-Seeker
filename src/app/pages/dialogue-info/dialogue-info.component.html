@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <img [src]="data.img" />
+    </div>
+    <div class="col-lg-6">
+      <h2>{{ data.dialogueTitle }}</h2>
+      <h6>Book: {{ data.book }}</h6>
+      <h6>Author: {{ data.author }}</h6>
+      <h6>Dialogue started by:</h6>
+    </div>
+  </div>
+</div>
+<hr />
+
+<div class="container">
+  <div class="msg" *ngFor="let item of msgData | async">
+    <h6 class="message" style="color: white">{{ item.message }}</h6>
+  </div>
+  <label for="inp" class="inp">
+    <input
+      (keyup.enter)="enterMsg()"
+      [(ngModel)]="message"
+      name="msg"
+      type="text"
+      id="inp"
+      placeholder="&nbsp;"
+    />
+    <span class="label">Enter the message</span>
+    <span class="focus-bg"></span>
+  </label>
+</div>

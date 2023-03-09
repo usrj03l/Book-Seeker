@@ -1,0 +1,21 @@
+<div class="main">
+  <h1>Dialogue List</h1>
+  <div class="top" *ngFor="let item of data | async">
+    <div  class="container">
+      <div class="content">
+        <img [src]="item.img | safePipe" />
+        <div class="title">
+          <h3>{{ item.dialogueTitle }}</h3>
+          <h6>Book: {{ item.book }}</h6>
+          <h6>Author: {{ item.author }}</h6>
+        </div>
+      </div>
+    </div>
+    <button (click)="del(item.id)" class="btn btn-danger">
+      Remove dialogue
+    </button>
+    <button (click)="gotoInfo(item.id)" class="btn btn-light">
+       dialogue messages
+    </button>
+  </div>
+</div>

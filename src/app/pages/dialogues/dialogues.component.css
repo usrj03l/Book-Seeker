@@ -1,0 +1,52 @@
+* {
+    color: white;
+    margin: 0;
+  }
+  
+  img {
+    float: left;
+    margin-right: 5%;
+    margin-top: 2%;
+  }
+  
+  button{
+    margin-right: 2%;
+  }
+  
+  .main {
+    margin-top: 4%;
+  }
+  
+  .top {
+    margin-top: 5%;
+    margin-left: 7%;
+    background-color: rgb(58, 57, 57);
+    height: 250px;
+    width: 700px;
+    border: 0.1px solid rgb(125, 125, 125);
+    border-radius: 5px;
+  }
+
+  .top:hover{
+    background-color: rgb(169, 166, 166);
+    cursor: pointer;
+  }
+  
+  .progress {
+    width: 400px;
+    margin-top: 2%;
+  }
+  
+  .btn {
+    margin-top: 3%;
+    width: 130px;
+  }
+  
+  h3 {
+    padding-top: 3%;
+  }
+  
+  h1 {
+    margin: 2% 7%;
+  }
+  

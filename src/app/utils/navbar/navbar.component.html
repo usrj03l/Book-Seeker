@@ -61,6 +61,24 @@
         <li class="nav-item sub-items">
           <a class="nav-link" routerLink="contact-us">Contact Us</a>
         </li>
+        <li class="nav-item dropdown sub-items">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {{authorize.username}}
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="my-bookshelf">My Bookshelf</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" routerLink="dialogues">View Dialogues</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" (click)="logOut()">Sign Out</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>

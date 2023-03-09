@@ -3,13 +3,24 @@ import { RouterModule, Routes } from '@angular/router';
 import { BookInfoComponent } from './pages/book-info/book-info.component';
 import { BookListComponent } from './pages/book-list/book-list.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { DialogueInfoComponent } from './pages/dialogue-info/dialogue-info.component';
+import { DialoguesComponent } from './pages/dialogues/dialogues.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { LoginComponent } from './pages/login/login.component';
+import { MyBookshelfComponent } from './pages/my-bookshelf/my-bookshelf.component';
 import { SearchComponent } from './pages/search/search.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 
 const routes: Routes = [
   {
-    path: "", component: HomePageComponent
+    path: '', component: LoginComponent
+  },
+  {
+    path: "login", component: LoginComponent
+  },
+  {
+    path: "signup", component: SignupComponent
   },
   {
     path: "book-info", component: BookInfoComponent
@@ -61,6 +72,15 @@ const routes: Routes = [
   },
   {
     path:"contact-us", component:ContactUsComponent
+  },
+  {
+    path:"my-bookshelf", component:MyBookshelfComponent
+  },
+  {
+    path:"dialogues", component:DialoguesComponent
+  },
+  {
+    path:"dialogue-info", component:DialogueInfoComponent
   }
 ];
 

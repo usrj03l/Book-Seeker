@@ -1,0 +1,19 @@
+<h1 class="text-center title">The Literary Lounge</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 signup">
+      <h1>Don't have an account yet ?</h1>
+      <button (click)="gotoSign()" class="btn btn-light signup-btn">Signup</button>
+    </div>
+    <div class="col-lg-6">
+      <div class="main">
+        <form #form="ngForm" (ngSubmit)="login()">
+          <h3>Login Here</h3>
+          <input type="text" placeholder="Email" id="username" name="email" [(ngModel)]="email" />
+          <input type="password" placeholder="Password" id="password" name="password" [(ngModel)]="password"  />
+          <button class="btn btn-light log-in">Log In</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

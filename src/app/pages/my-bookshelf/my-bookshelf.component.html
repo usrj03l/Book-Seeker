@@ -1,0 +1,16 @@
+<div class="main">
+  <h1>My Bookshelf</h1>
+  <div class="container" *ngFor="let item of data | async">
+    <div class="content">
+      <img [src]="item.img | safePipe" />
+      <div class="title">
+        <h3>{{ item.title }}</h3>
+        <h6>Author: {{item.author}} </h6>
+      </div>
+      <p>Progress: Reading</p>
+      <button (click)="deleteBook(item.id)" class="btn btn-danger">Remove book</button>
+      <button (click)="gotoBuy(item.buyLink)" class="btn btn-light" style="color: black;"> Buy </button>
+      <button (click)="enterTitle(item)" class="btn btn-light" style="color: black;"> Start a dialogue </button>
+    </div>
+  </div>
+</div>

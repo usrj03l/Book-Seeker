@@ -18,7 +18,7 @@ export class BookListComponent {
   }
 
   ngOnInit() {
-    this.obs = this.api.getObs();
+    this.obs = this.api.getGenre();
     this.obs.subscribe(data => this.api.googleSearch(data).subscribe(response => {
       this.data = response
       this.data ? this.loading=false : this.loading=true

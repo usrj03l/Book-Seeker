@@ -8,8 +8,8 @@
         <div class="col-lg-6 image">
             <img class="" [src]="data.items[0].volumeInfo.imageLinks.thumbnail | safePipe">
             <h4>Rating: <span *ngFor="let _ of [].constructor(rating)"> {{star}} </span></h4>
-            <button  class="btn btn-light" > Add to bookshelf </button>
-            <button (click)="gotoBuy()" class="btn btn-light" *ngIf="buy"> Buy </button>
+            <button (click)="addToBookshelf(data.items[0])"  class="btn btn-light" > Add to bookshelf </button>
+            
         </div>
         <div class="col-lg-6">
             <h1>Summary</h1>

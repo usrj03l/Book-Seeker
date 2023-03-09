@@ -16,6 +16,16 @@ import { SearchComponent } from './pages/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { LoadingComponent } from './pages/loading/loading.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { MyBookshelfComponent } from './pages/my-bookshelf/my-bookshelf.component';
+import { DialoguesComponent } from './pages/dialogues/dialogues.component';
+import { DialogueInfoComponent } from './pages/dialogue-info/dialogue-info.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +41,24 @@ import { LoadingComponent } from './pages/loading/loading.component';
     SearchComponent,
     ContactUsComponent,
     LoadingComponent,
+    LoginComponent,
+    SignupComponent,
+    MyBookshelfComponent,
+    DialoguesComponent,
+    DialogueInfoComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

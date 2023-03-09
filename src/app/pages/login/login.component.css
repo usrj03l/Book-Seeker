@@ -1,0 +1,66 @@
+
+.signup {
+  color: white;
+}
+
+h1 {
+  padding-bottom: 3%;
+  color: whitesmoke;
+}
+
+h3 {
+  font-family: "Roboto Mono", monospace;
+  color: whitesmoke;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5% 0%;
+}
+
+input::placeholder {
+  color: whitesmoke;
+}
+
+label {
+  padding: 4% 0%;
+  font-size: large;
+}
+
+.title{
+  margin-top: 3%;
+  padding-bottom: 0;
+}
+
+.log-in,
+.signup-btn {
+  margin-top: 5%;
+  height: 50px;
+  width: 150px;
+}
+
+input {
+  height: 50px;
+  width: 350px;
+  color: whitesmoke;
+  background-color: rgb(39, 46, 52);
+  margin: 5% 0% 2%;
+  border: 1px solid rgb(224, 220, 220);
+  border-radius: 5px;
+}
+
+.container {
+  margin-top: 10rem;
+}
+
+.signup {
+  text-align: center;
+}
+
+.main {
+  background-color: rgb(39, 46, 52);
+  border-radius: 5px;
+  margin-left: 14%;
+}

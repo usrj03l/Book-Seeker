@@ -60,7 +60,7 @@ export class HomePageComponent {
       this.fantasy=this.data.items
       this.fantasy ? this.count=this.count+1 : this.count
     });
-
+    
   }
 
 }
