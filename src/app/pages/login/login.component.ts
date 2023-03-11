@@ -15,8 +15,11 @@ export class LoginComponent {
   constructor(private router: Router, private authorize: AuthService) { }
 
   ngOnInit(){
-
+    if(this.authorize.isLoggedIn()){
+      this.router.navigate(['Home'])
+    }
   }
+
   login() {
 
     const creds = {

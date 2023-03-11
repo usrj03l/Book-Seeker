@@ -3,8 +3,7 @@ import {
   Auth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  signOut,
-  user
+  signOut
 } from '@angular/fire/auth';
 
 import {
@@ -46,15 +45,6 @@ export class AuthService {
 
 
   constructor(private auth: Auth, private router: Router, private firestore: Firestore, private api: BookDataService) {
-    // this.userAuth.onAuthStateChanged(function (user: any) {
-    //   if (user) {
-    //     router.navigate(['Home'])
-    //   }
-    // });
-    if(this.isLoggedIn()){
-      router.navigate(['Home'])
-    }
-
     this.userId = localStorage.getItem('userId')
     this.username = localStorage.getItem('username')
 

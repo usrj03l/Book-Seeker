@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 
 @Component({
@@ -8,7 +9,13 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class SignupComponent {
 
-  constructor(private authorize:AuthService){ }
+  constructor(private authorize:AuthService, private router:Router){ }
+
+  ngOnInit(){
+    if(this.authorize.isLoggedIn()){
+      this.router.navigate(['Home'])
+    }
+  }
 
   signup(formData:any){
     if(formData.password === formData.confirmPassword){
