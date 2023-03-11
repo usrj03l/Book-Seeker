@@ -26,7 +26,7 @@ import {
   deleteDoc,
 } from '@angular/fire/firestore';
 
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -46,16 +46,29 @@ export class AuthService {
 
 
   constructor(private auth: Auth, private router: Router, private firestore: Firestore, private api: BookDataService) {
-    this.userAuth.onAuthStateChanged(function (user: any) {
-      if (user) {
-        router.navigate(['Home'])
-      }
-    });
+    // this.userAuth.onAuthStateChanged(function (user: any) {
+    //   if (user) {
+    //     router.navigate(['Home'])
+    //   }
+    // });
+    if(this.isLoggedIn()){
+      router.navigate(['Home'])
+    }
+
     this.userId = localStorage.getItem('userId')
     this.username = localStorage.getItem('username')
 
   }
 
+  isLoggedIn() {
+    const user = JSON.parse(localStorage.getItem('isLogged') || 'false')
+
+    if (user) {
+      return true
+    } else {
+      return false
+    }
+  }
 
   signIn(creds: any) {
     signInWithEmailAndPassword(this.auth, creds.email, creds.password)
@@ -66,7 +79,7 @@ export class AuthService {
           this.username = data.name
           localStorage.setItem('username', this.username)
         })
-
+        localStorage.setItem('isLogged', JSON.stringify(true))
         this.router.navigate(['Home'])
       })
       .catch((err) => {
@@ -92,6 +105,7 @@ export class AuthService {
 
         localStorage.setItem('userId', this.userId)
         localStorage.setItem('username', this.username)
+        localStorage.setItem('isLogged', JSON.stringify(true))
 
         this.router.navigate(['Home'])
       })
@@ -107,6 +121,7 @@ export class AuthService {
         localStorage.removeItem('username')
         localStorage.removeItem('dialId')
         localStorage.removeItem('isbn')
+        localStorage.removeItem('isLogged')
         this.router.navigate([''])
       })
       .catch((err) => {
