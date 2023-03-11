@@ -11,7 +11,7 @@ export class DialoguesComponent {
 
   data: any
 
-  constructor(private authorize: AuthService, private router:Router) { }
+  constructor(public authorize: AuthService, private router:Router) { }
 
   ngOnInit() {
     this.data = this.authorize.viewDialogues()

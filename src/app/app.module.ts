@@ -26,6 +26,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { MyBookshelfComponent } from './pages/my-bookshelf/my-bookshelf.component';
 import { DialoguesComponent } from './pages/dialogues/dialogues.component';
 import { DialogueInfoComponent } from './pages/dialogue-info/dialogue-info.component';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -53,14 +54,13 @@ import { DialogueInfoComponent } from './pages/dialogue-info/dialogue-info.compo
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireModule,
+    
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
 
   ],
-  providers: [],
+  providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

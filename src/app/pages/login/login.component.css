@@ -47,7 +47,7 @@ input {
   color: whitesmoke;
   background-color: rgb(39, 46, 52);
   margin: 5% 0% 2%;
-  border: 1px solid rgb(224, 220, 220);
+  border: 1px solid rgba(224, 220, 220,0.3);
   border-radius: 5px;
 }
 

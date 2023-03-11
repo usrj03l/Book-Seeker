@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFireAuth  } from '@angular/fire/compat/auth/';
+import { AngularFireAuth } from '@angular/fire/compat/auth/';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,10 @@ import { AngularFireAuth  } from '@angular/fire/compat/auth/';
 
 
 export class AppComponent {
+  // user: boolean = false
 
-  constructor( public auth:AngularFireAuth) {}
-  ngOnInit() {}
+  constructor(public auth: AngularFireAuth) { }
+  ngOnInit() {
+
+  }
 }

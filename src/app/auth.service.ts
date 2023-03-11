@@ -3,7 +3,8 @@ import {
   Auth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  signOut
+  signOut,
+  user
 } from '@angular/fire/auth';
 
 import {
@@ -24,6 +25,9 @@ import {
   getDoc,
   deleteDoc,
 } from '@angular/fire/firestore';
+
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BookDataService } from './book-data.service';
@@ -34,18 +38,35 @@ import { BookDataService } from './book-data.service';
 export class AuthService {
 
   userId: any
-  username:string=''
+  username: any
   userData!: Observable<any>
   bookExists!: Promise<boolean>
   db: any = getFirestore()
+  userAuth: any = getAuth()
 
-  constructor(private auth: Auth, private router: Router, private firestore: Firestore, private api: BookDataService) { }
+
+  constructor(private auth: Auth, private router: Router, private firestore: Firestore, private api: BookDataService) {
+    this.userAuth.onAuthStateChanged(function (user: any) {
+      if (user) {
+        router.navigate(['Home'])
+      }
+    });
+    this.userId = localStorage.getItem('userId')
+    this.username = localStorage.getItem('username')
+
+  }
+
 
   signIn(creds: any) {
     signInWithEmailAndPassword(this.auth, creds.email, creds.password)
       .then(() => {
         this.userId = this.auth.currentUser?.uid
-        this.getUser().then((data)=> this.username = data.name)
+        localStorage.setItem('userId', this.userId)
+        this.getUser().then((data) => {
+          this.username = data.name
+          localStorage.setItem('username', this.username)
+        })
+
         this.router.navigate(['Home'])
       })
       .catch((err) => {
@@ -59,6 +80,7 @@ export class AuthService {
     createUserWithEmailAndPassword(this.auth, data.email, data.password)
       .then(() => {
         this.userId = this.auth.currentUser?.uid
+        this.username = data.name
         userDetails = {
           uid: this.userId,
           name: data.name,
@@ -66,6 +88,11 @@ export class AuthService {
         }
         const docRef = doc(this.db, "users", this.userId)
         this.addUser(docRef, userDetails)
+        this.api.sAlert('Account created successfully')
+
+        localStorage.setItem('userId', this.userId)
+        localStorage.setItem('username', this.username)
+
         this.router.navigate(['Home'])
       })
       .catch((err) => {
@@ -76,6 +103,10 @@ export class AuthService {
   logOut() {
     signOut(this.auth)
       .then(() => {
+        localStorage.removeItem('userId')
+        localStorage.removeItem('username')
+        localStorage.removeItem('dialId')
+        localStorage.removeItem('isbn')
         this.router.navigate([''])
       })
       .catch((err) => {
@@ -111,6 +142,7 @@ export class AuthService {
       }
     })
 
+    return true
   }
 
   async checkBookExists(docRef: any, isbn: any) {
@@ -139,20 +171,18 @@ export class AuthService {
   insertData(docRef: any, values: any) {
     addDoc(docRef, values)
       .then(() => {
-        // this.api.sAlert('Sucess')
+        this.api.sAlert('Sucess')
       })
-      .catch((err) => alert(err.message))
+      .catch((err) => this.api.fAlert(err.message))
   }
 
 
-  addDialogue(details: any) {
-    const docRef = collection(this.firestore, "dialogues")
-    this.insertData(docRef, details)
+  async addDialogue(details: any) {
+    await setDoc(doc(this.db, "dialogues", this.userId), details);
   }
 
-  addDialInfo(id:any , msg:any) {
-    const docRef = collection(this.firestore, "dialogues",id,"messages")
-    this.insertData(docRef, msg)
+  async addDialInfo(id: any, msg: any) {
+    const docRef = await addDoc(collection(this.db, "dialogues", id, "messages"), msg);
   }
 
   viewDialogues(): Observable<any> {
@@ -161,8 +191,8 @@ export class AuthService {
     return this.userData
   }
 
-  viewMessages(id:any): Observable<any> {
-    const collectionInstance = collection(this.firestore, "dialogues",id,"messages")
+  viewMessages(id: any): Observable<any> {
+    const collectionInstance = collection(this.firestore, "dialogues", id, "messages")
     this.userData = collectionData(collectionInstance, { idField: 'id' })
     return this.userData
   }

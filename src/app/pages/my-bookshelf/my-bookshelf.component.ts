@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import { AuthService } from 'src/app/auth.service';
 import { BookDataService } from 'src/app/book-data.service';
 
+
 @Component({
   selector: 'app-my-bookshelf',
   templateUrl: './my-bookshelf.component.html',
@@ -17,32 +18,41 @@ export class MyBookshelfComponent {
     this.data = this.authorize.viewMyBookshelf()
   }
 
-  enterTitle(item: any) {
-    let key;
-    Swal.fire({
-      title: "Sweet Alert Text Box",
-      text: "Write something interesting:",
+  async enterTitle(item: any) {
+    const { value: dialogue } = await Swal.fire({
+      title: 'Input dialogue ',
       input: 'text',
-      inputValue: key,
-      showCancelButton: true
-    }).then((result) => {
-      if (result.value) {
-        this.startDialogue(item, result.value)
-      }
-    });
+      inputLabel: 'Your dialogue title',
+      inputPlaceholder: 'Enter your dialogue name'
+    })
+
+    if (dialogue) {
+      this.startDialogue(item, dialogue)
+    }
 
   }
 
   startDialogue(item: any, dtitle: any) {
+    const currentdate = new Date();
+    const datetime = currentdate.getDate() + "/"
+      + (currentdate.getMonth() + 1) + "/"
+      + currentdate.getFullYear() + " @ "
+      + currentdate.getHours() + ":"
+      + currentdate.getMinutes() + ":"
+      + currentdate.getSeconds();
+
     const details = {
       dialogueTitle: dtitle,
       book: item.title,
       author: item.author,
-      img: item.img
+      img: item.img,
+      creator: this.authorize.username,
+      time: datetime
     }
     this.authorize.addDialogue(details)
+
   }
-  
+
   deleteBook(id: any) {
     this.authorize.deleteMyBookshelf(id)
   }

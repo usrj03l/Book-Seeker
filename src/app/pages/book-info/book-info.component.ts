@@ -40,14 +40,14 @@ export class BookInfoComponent {
 
   }
 
-  addToBookshelf(data:any) {
+  addToBookshelf(data: any) {
     const bookDetails = {
       title: data.volumeInfo.title,
       img: data.volumeInfo.imageLinks.thumbnail,
       author: data.volumeInfo.authors[0],
       isbn: this.isbn,
       buyLink: this.buy,
-      type:'bookshelf'
+      type: 'bookshelf'
     }
 
     this.authorize.addBook(bookDetails)

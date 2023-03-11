@@ -11,10 +11,10 @@
         </div>
       </div>
     </div>
-    <button (click)="del(item.id)" class="btn btn-danger">
+    <button (click)="del(item.id)" class="btn btn-danger" *ngIf="item.id == authorize.userId">
       Remove dialogue
     </button>
-    <button (click)="gotoInfo(item.id)" class="btn btn-light">
+    <button (click)="gotoInfo(item.id)" class="btn btn-light" style="color: black;">
        dialogue messages
     </button>
   </div>

@@ -52,7 +52,7 @@ export class BookDataService {
 
   sAlert(msg: string) {
     Swal.fire(
-      'Great',
+      '',
       msg,
       'success'
     )

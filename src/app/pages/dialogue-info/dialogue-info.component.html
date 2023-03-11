@@ -1,13 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-6">
+    <div class="image col-lg-6">
       <img [src]="data.img" />
     </div>
-    <div class="col-lg-6">
+    <div class="desc col-lg-6">
       <h2>{{ data.dialogueTitle }}</h2>
       <h6>Book: {{ data.book }}</h6>
       <h6>Author: {{ data.author }}</h6>
-      <h6>Dialogue started by:</h6>
+      <h6>Dialogue started by: {{data.creator}} </h6>
+      <h6>Dialogue created on: {{data.time}} </h6>
     </div>
   </div>
 </div>
@@ -15,11 +16,14 @@
 
 <div class="container">
   <div class="msg" *ngFor="let item of msgData | async">
-    <h6 class="message" style="color: white">{{ item.message }}</h6>
+    <div class="message">
+      <p  style="color: white">User: {{ item.username }}</p>
+      <h5  style="color: white">Message: {{ item.message }}</h5>
+    </div>
   </div>
   <label for="inp" class="inp">
     <input
-      (keyup.enter)="enterMsg()"
+      (keyup.enter)="enterMsg()" 
       [(ngModel)]="message"
       name="msg"
       type="text"
