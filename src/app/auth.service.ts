@@ -25,8 +25,6 @@ import {
   deleteDoc,
 } from '@angular/fire/firestore';
 
-import { getAuth } from "firebase/auth";
-
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BookDataService } from './book-data.service';
@@ -41,13 +39,11 @@ export class AuthService {
   userData!: Observable<any>
   bookExists!: Promise<boolean>
   db: any = getFirestore()
-  userAuth: any = getAuth()
-
 
   constructor(private auth: Auth, private router: Router, private firestore: Firestore, private api: BookDataService) {
     this.userId = localStorage.getItem('userId')
     this.username = localStorage.getItem('username')
-
+    
   }
 
   isLoggedIn() {

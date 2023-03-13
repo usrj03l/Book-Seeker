@@ -22,7 +22,6 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { AngularFireModule } from '@angular/fire/compat';
 import { MyBookshelfComponent } from './pages/my-bookshelf/my-bookshelf.component';
 import { DialoguesComponent } from './pages/dialogues/dialogues.component';
 import { DialogueInfoComponent } from './pages/dialogue-info/dialogue-info.component';
