@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-    <button (click)="del(item.id)" class="btn btn-danger" *ngIf="item.id == authorize.userId">
+    <button (click)="del(item.id)" class="btn btn-danger" *ngIf="item.uid == authorize.userId">
       Remove dialogue
     </button>
     <button (click)="gotoInfo(item.id)" class="btn btn-light" style="color: black;">
@@ -19,3 +19,4 @@
     </button>
   </div>
 </div>
+ 

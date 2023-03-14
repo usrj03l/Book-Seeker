@@ -173,8 +173,10 @@ export class AuthService {
     deleteDoc(docRef)
   }
 
-  async addDialogue(details: any) {
-    await setDoc(doc(this.db, "dialogues", this.userId), details);
+   addDialogue(details: any) {
+    // await setDoc(doc(this.db, "dialogues", this.userId), details);
+    const docRef = collection(this.firestore, "dialogues")
+    this.insertData(docRef, details)
   }
 
   async addDialInfo(id: any, msg: any) {

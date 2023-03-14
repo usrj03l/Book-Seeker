@@ -42,6 +42,7 @@ export class MyBookshelfComponent {
       + currentdate.getSeconds();
 
     const details = {
+      uid:this.authorize.userId,
       dialogueTitle: dtitle,
       book: item.title,
       author: item.author,
