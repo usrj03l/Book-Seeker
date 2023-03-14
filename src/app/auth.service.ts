@@ -103,11 +103,7 @@ export class AuthService {
   logOut() {
     signOut(this.auth)
       .then(() => {
-        localStorage.removeItem('userId')
-        localStorage.removeItem('username')
-        localStorage.removeItem('dialId')
-        localStorage.removeItem('isbn')
-        localStorage.removeItem('isLogged')
+        localStorage.clear()
         this.router.navigate([''])
       })
       .catch((err) => {
