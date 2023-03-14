@@ -128,6 +128,14 @@ export class AuthService {
     }
   }
 
+  insertData(docRef: any, values: any) {
+    addDoc(docRef, values)
+      .then(() => {
+        this.api.sAlert('Sucess')
+      })
+      .catch((err) => this.api.fAlert(err.message))
+  }
+
   addBook(bookDetails: any) {
     const docRef = collection(this.firestore, "bookshelves", this.userId, "myBookshelf")
     this.bookExists = this.checkBookExists(docRef, bookDetails.isbn)
@@ -165,15 +173,6 @@ export class AuthService {
     deleteDoc(docRef)
   }
 
-  insertData(docRef: any, values: any) {
-    addDoc(docRef, values)
-      .then(() => {
-        this.api.sAlert('Sucess')
-      })
-      .catch((err) => this.api.fAlert(err.message))
-  }
-
-
   async addDialogue(details: any) {
     await setDoc(doc(this.db, "dialogues", this.userId), details);
   }
@@ -206,7 +205,6 @@ export class AuthService {
       console.log(error)
     }
   }
-
 
   deleteDialogue(id: any) {
     const docRef = doc(this.firestore, "dialogues", id)
