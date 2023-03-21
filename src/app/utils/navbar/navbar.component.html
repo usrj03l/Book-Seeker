@@ -1,6 +1,8 @@
 <nav class="navbar navbar-custom navbar-expand-lg">
   <div class="container-fluid">
-    <a class="navbar-brand logo-link" routerLink="Home"><img src="../../../assets/images/logo.png">The Literary Lounge</a>
+    <a class="navbar-brand logo-link" routerLink="Home"
+      ><img src="../../../assets/images/logo.png" />Book Seeker</a
+    >
     <button
       class="navbar-toggler"
       type="button"
@@ -28,31 +30,85 @@
             Genre
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" (click)="getInfo('fiction+crime','1')">Crime</a></li>
+            <li>
+              <a class="dropdown-item" (click)="getInfo('fiction+crime', '1')"
+                >Crime</a
+              >
+            </li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" (click)="getInfo('Art','2')">Art</a></li>
+            <li>
+              <a class="dropdown-item" (click)="getInfo('Art', '2')">Art</a>
+            </li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" (click)="getInfo('Religion','3')">Religion</a></li>
+            <li>
+              <a class="dropdown-item" (click)="getInfo('Religion', '3')"
+                >Religion</a
+              >
+            </li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" (click)="getInfo('Biography','4')">Biography</a></li>
+            <li>
+              <a class="dropdown-item" (click)="getInfo('Biography', '4')"
+                >Biography</a
+              >
+            </li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" (click)="getInfo('subject:Technology','5')">Technology</a></li>
+            <li>
+              <a
+                class="dropdown-item"
+                (click)="getInfo('subject:Technology', '5')"
+                >Technology</a
+              >
+            </li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" (click)="getInfo('Sports','6')">Sports</a></li>
+            <li>
+              <a class="dropdown-item" (click)="getInfo('Sports', '6')"
+                >Sports</a
+              >
+            </li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" (click)="getInfo('fiction+Romance+young','7')">Romance</a></li>
+            <li>
+              <a
+                class="dropdown-item"
+                (click)="getInfo('fiction+Romance+young', '7')"
+                >Romance</a
+              >
+            </li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" (click)="getInfo('funny+fiction','8')">Comedy</a></li>
+            <li>
+              <a class="dropdown-item" (click)="getInfo('funny+fiction', '8')"
+                >Comedy</a
+              >
+            </li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" (click)="getInfo('poetry','9')">Poetry</a></li>
+            <li>
+              <a class="dropdown-item" (click)="getInfo('poetry', '9')"
+                >Poetry</a
+              >
+            </li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" (click)="getInfo('thriller','10')">Thriller</a></li>
+            <li>
+              <a class="dropdown-item" (click)="getInfo('thriller', '10')"
+                >Thriller</a
+              >
+            </li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" (click)="getInfo('suspense','11')">Suspense</a></li>
+            <li>
+              <a class="dropdown-item" (click)="getInfo('suspense', '11')"
+                >Suspense</a
+              >
+            </li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" (click)="getInfo('mystery','12')">Mystery</a></li>
+            <li>
+              <a class="dropdown-item" (click)="getInfo('mystery', '12')"
+                >Mystery</a
+              >
+            </li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" (click)="getInfo('fiction+horror','13')">Horror</a></li>
+            <li>
+              <a class="dropdown-item" (click)="getInfo('fiction+horror', '13')"
+                >Horror</a
+              >
+            </li>
           </ul>
         </li>
         <li class="nav-item sub-items">
@@ -68,14 +124,18 @@
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
-            style="margin-left: 30px;"
+            style="margin-left: 30px"
           >
-            {{authorize.username}}
+            {{ authorize.username }}
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="contact-us">Contact Us</a></li>
+            <li>
+              <a class="dropdown-item" routerLink="contact-us">Contact Us</a>
+            </li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" routerLink="dialogues">View Dialogues</a></li>
+            <li>
+              <a class="dropdown-item" routerLink="dialogues">View Dialogues</a>
+            </li>
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" (click)="logOut()">Sign Out</a></li>
           </ul>
