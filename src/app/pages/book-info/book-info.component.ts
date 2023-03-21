@@ -46,8 +46,7 @@ export class BookInfoComponent {
       img: data.volumeInfo.imageLinks.thumbnail,
       author: data.volumeInfo.authors[0],
       isbn: this.isbn,
-      buyLink: this.buy,
-      type: 'bookshelf'
+      buyLink: this.buy
     }
 
     this.authorize.addBook(bookDetails)
